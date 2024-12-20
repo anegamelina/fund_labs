@@ -26,3 +26,5 @@ add_executable(laba2.2 lab2/task2/task2.c)
 add_executable(laba2.7 lab2/task7/task7.c)
 
 add_executable(laba2.9 lab2/task9/task9.c)
+
+add_executable(laba1.6 lab1/task6/task6.c)
