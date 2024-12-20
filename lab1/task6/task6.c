@@ -108,17 +108,17 @@ double Integration(double eps, double (*integration_func)(double)){
     while(fabs(res - previous_res) >= eps){
         previous_res = res;
         res = Rectangle_method(num_of_parts, eps, integration_func);
-        num_of_parts *= 2;
+        num_of_parts *= 2; // если не добились достаточно точного результата
     }
     return res;
 }
 
 double Rectangle_method(int num_of_parts, double eps, double (*integration_func)(double)){
     double h, sum = 0.0, x, i;
-    h = 1.0 / num_of_parts;
+    h = 1.0 / num_of_parts; // ширина 1 прямоугольника (интервала на которые разбиваем)
 
     for(i = eps; i < num_of_parts - eps; ++i){
-        x = h * i;
+        x = h * i; // вычисляем текущую точку интервала
         sum += integration_func(x);
     }
     return h * sum;
