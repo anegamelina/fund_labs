@@ -77,6 +77,55 @@ public:
 };
 
 int main(){
+    bool answ;
+    logical_values_array v1(13), v2(11), v3;
+    char conv[33];
 
+    v3 = logical_values_array::inversion(v1);
+    std::cout << "Inversion: " << "~" << v1.get_value() << " = " << v3.get_value() << "\n";
 
+    v3 = logical_values_array::conjunction(v1, v2);
+    std::cout << "Conjunction: " << v1.get_value() << " & " << v2.get_value() << " = " << v3.get_value() << "\n";
+
+    v3 = logical_values_array::disjunction(v1, v2);
+    std::cout << "Disjunction: " << v1.get_value() << " || " << v2.get_value() << " = " << v3.get_value() << "\n";
+
+    v3 = logical_values_array::implication(v1, v2);
+    std::cout << "Implication: " << v1.get_value() << " -> " << v2.get_value() << " = " << v3.get_value() << "\n";
+
+    v3 = logical_values_array::coimplication(v1, v2);
+    std::cout << "Coimplication: " << v1.get_value() << " ~-> " << v2.get_value() << " = " << v3.get_value() << "\n";
+
+    v3 = logical_values_array::XOR(v1, v2);
+    std::cout << "XOR: " << v1.get_value() << " + " << v2.get_value() << " = " << v3.get_value() << "\n";
+
+    v3 = logical_values_array::equivalence(v1, v2);
+    std::cout << "Equivalence: " << v1.get_value() << " <=> " << v2.get_value() << " = " << v3.get_value() << "\n";
+
+    v3 = logical_values_array::Pierce_arrow(v1, v2);
+    std::cout << "Pierce arrow: " << v1.get_value() << " | " << v2.get_value() << " = " << v3.get_value() << "\n";
+
+    v3 = logical_values_array::Sheffer_stroke(v1, v2);
+    std::cout << "Sheffer stroke: " << v1.get_value() << " / " << v2.get_value() << " = " << v3.get_value() << "\n";
+
+    v3 = logical_values_array::equals(v1, v2);
+    std::cout << "Are equal: " << v1.get_value() << " == " << v2.get_value() << " = " << v3.get_value() << "\n";
+
+    try{
+        answ = logical_values_array::get_bit(v1, 2);
+        std::cout << "Bit by position: " << v1.get_value() << " position 2" << " = " << answ << "\n";
+    }
+    catch (std::logic_error &problem){
+        std::cout << "Error. " << problem.what();
+    }
+
+    try{
+        logical_values_array::convertation_to_str(conv, v1);
+        std::cout << "Binary num um in str: " << v1.get_value() << " = " << conv << "\n";
+    }
+    catch (std::logic_error &problem){
+        std::cout << "Error. " << problem.what();
+    }
+
+    return 0;
 }
